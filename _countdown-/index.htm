@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="flip.min.css" rel="stylesheet">
+    <style>
+        .tick {
+            padding-bottom: 1em;
+            font-size:1rem;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
+            margin-bottom: 30px;
+        }
+        
+        .tick-label {
+            font-size:.375em;
+            display: none !important;
+            text-align:center;
+        }
+    
+        .tick-group {
+            margin:0 .25em;
+            text-align:center;
+        }
+    </style>
+
+</head>
+<body>
+    <div class="tick"
+     data-did-init="handleTickInit">
+
+    <div data-repeat="true"
+         data-layout="horizontal center fit"
+         data-transform="preset(d, h, m, s) -> delay">
+
+        <div class="tick-group">
+
+            <div data-key="value"
+                 data-repeat="true"
+                 data-transform="pad(00) -> split -> delay">
+
+                <span data-view="flip"></span>
+
+            </div>
+
+            <span data-key="label"
+                  data-view="text"
+                  class="tick-label"></span>
+
+                
+
+        </div>
+
+    </div>
+
+</div>
+
+<div class="tick"
+     data-did-init="handleTickInit2">
+
+    <div data-repeat="true"
+         data-layout="horizontal center fit"
+         data-transform="preset(d, h, m, s) -> delay">
+
+        <div class="tick-group">
+
+            <div data-key="value"
+                 data-repeat="true"
+                 data-transform="pad(00) -> split -> delay">
+
+                <span data-view="flip"></span>
+
+            </div>
+
+            <span data-key="label"
+                  data-view="text"
+                  class="tick-label"></span>
+
+                
+
+        </div>
+
+    </div>
+
+</div>
+<!-- <div class="tick"
+     data-did-init="handleTickInit3">
+
+    <div data-repeat="true"
+         data-layout="horizontal center fit"
+         data-transform="preset(d, h, m, s) -> delay">
+
+        <div class="tick-group">
+
+            <div data-key="value"
+                 data-repeat="true"
+                 data-transform="pad(00) -> split -> delay">
+
+                <span data-view="flip"></span>
+
+            </div>
+
+            <span data-key="label"
+                  data-view="text"
+                  class="tick-label"></span>
+
+                
+
+        </div>
+
+    </div>
+
+</div>
+<div class="tick"
+     data-did-init="handleTickInit4">
+
+    <div data-repeat="true"
+         data-layout="horizontal center fit"
+         data-transform="preset(d, h, m, s) -> delay">
+
+        <div class="tick-group">
+
+            <div data-key="value"
+                 data-repeat="true"
+                 data-transform="pad(00) -> split -> delay">
+
+                <span data-view="flip"></span>
+
+            </div>
+
+            <span data-key="label"
+                  data-view="text"
+                  class="tick-label"></span>
+
+                
+
+        </div>
+
+    </div>
+
+</div> -->
+<script src="flip.min.js"></script>
+
+    <script>
+	function handleTickInit(tick) {
+
+
+        var countdownTo = (new Date('March 3, 2026' ));
+        
+		Tick.count.down(countdownTo).onupdate = function(value) {
+            const val = 0.012743404363267378
+            const totalValue = 365 * 24 * 60 * 60
+            const hours = (value[0] * 24) + value[1]
+            const minutes = (hours * 60) + value[2]
+            const seconds = (minutes * 60) + value[3]
+			tick.value = value;
+        };
+
+	}
+
+    function handleTickInit2(tick) {
+        var countdownTo = (new Date('March 3, 2028' ));
+        Tick.count.down(countdownTo).onupdate = function(value) {
+            const val = 0.012743404363267378
+            const totalValue = 365 * 24 * 60 * 60
+            const hours = (value[0] * 24) + value[1]
+            const minutes = (hours * 60) + value[2]
+            const seconds = (minutes * 60) + value[3]
+            tick.value = value;
+        };      
+    }
+
+    // function handleTickInit3(tick) {
+    //     var countdownTo = (new Date('February 25, 2023' ));
+    //     Tick.count.down(countdownTo).onupdate = function(value) {
+    //         const val = 0.012743404363267378
+    //         const totalValue = 365 * 24 * 60 * 60
+    //         const hours = (value[0] * 24) + value[1]
+    //         const minutes = (hours * 60) + value[2]
+    //         const seconds = (minutes * 60) + value[3]
+    //         tick.value = value;
+    //     };      
+    // }
+
+    // function handleTickInit4(tick) {
+    //     var countdownTo = (new Date('June 3, 2023' ));
+    //     Tick.count.down(countdownTo).onupdate = function(value) {
+    //         const val = 0.012743404363267378
+    //         const totalValue = 365 * 24 * 60 * 60
+    //         const hours = (value[0] * 24) + value[1]
+    //         const minutes = (hours * 60) + value[2]
+    //         const seconds = (minutes * 60) + value[3]
+    //         tick.value = value;
+    //     };      
+    // }
+</script>
+</body>
+</html>
